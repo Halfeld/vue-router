@@ -1,8 +1,9 @@
-# Getting Started
+# Primeiros Passos
 
-> We will be using [ES2015](https://github.com/lukehoban/es6features) in the code samples in the guide.
+> Nós vamos usar [ES2015](https://github.com/lukehoban/es6features) nos exemplos de código deste guia.
 
-Creating a Single-page Application with Vue.js + vue-router is dead simple. With Vue.js, we are already composing our application with components. When adding vue-router to the mix, all we need to do is map our components to the routes and let vue-router know where to render them. Here's a basic example:
+Criando um Single Page Application com Vue.js + vue-router é simples. Com Vue.js, nós já fazemos nossas aplicações com componentes. Quando adicionado o vue-router a mistura, todos nós precisamos mapear nossos componentes para as rotas e deixar o vue-router saber onde renderizar eles.
+Aqui está um exemplo básico:
 
 ### HTML
 
@@ -10,14 +11,14 @@ Creating a Single-page Application with Vue.js + vue-router is dead simple. With
 <div id="app">
   <h1>Hello App!</h1>
   <p>
-    <!-- use router-link component for navigation. -->
-    <!-- specify the link by passing the `to` prop. -->
-    <!-- <router-link> will be rendered as an `<a>` tag by default -->
+    <!-- use componente para navegação. -->
+    <!-- especifique o link passando a prop `to`. -->
+    <!-- <router-link> vai ser renderizado como um `<a>` tag por default. -->
     <router-link to="/foo">Go to Foo</router-link>
     <router-link to="/bar">Go to Bar</router-link>
   </p>
-  <!-- route outlet -->
-  <!-- component matched by the route will render here -->
+  <!-- saída da rota -->
+  <!-- os componentes correspondentes vão ser renderizados aqui -->
   <router-view></router-view>
 </div>
 ```
@@ -25,40 +26,40 @@ Creating a Single-page Application with Vue.js + vue-router is dead simple. With
 ### JavaScript
 
 ``` js
-// 0. If using a module system, call Vue.use(VueRouter)
+// 0. Se estiver usando um sistema de modulos, chame `Vue.use(VueRouter)`
 
-// 1. Define route components.
-// These can be imported from other files
+// 1. Defina os componentes nas rotas respectivas
+// Estes podem ser importados de outros arquivos
 const Foo = { template: '<div>foo</div>' }
 const Bar = { template: '<div>bar</div>' }
 
-// 2. Define some routes
-// Each route should map to a component. The "component" can
-// either be an actual component constructor created via
-// Vue.extend(), or just a component options object.
-// We'll talk about nested routes later.
+// 2. Defina algumas rotas
+// Cada rota deveria mapear para um component. O "componente" pode
+// ser um construtor de componente real criado via
+// Vue.extend(), ou só um objeto de opções de componente
+// Nós vamos falar sobre rotas alinhadas depois.
 const routes = [
   { path: '/foo', component: Foo },
   { path: '/bar', component: Bar }
 ]
 
-// 3. Create the router instance and pass the `routes` option
-// You can pass in additional options here, but let's
-// keep it simple for now.
+// 3. Crie a intância da rota e passe a opção `routes`
+// Você pode passar um opção adicional aqui, mais vamos
+// manter simples agora.
 const router = new VueRouter({
-  routes // short for routes: routes
+  routes // shorthand para `routes: routes`
 })
 
-// 4. Create and mount the root instance.
-// Make sure to inject the router with the router option to make the
-// whole app router-aware.
+// 4. Crie e monte a instância root
+// Tenha certeza de injetar o router com as opções para fazer
+// toda a app roteável
 const app = new Vue({
   router
 }).$mount('#app')
 
-// Now the app has started!
+// Agora a app foi iniciada!
 ```
 
-You can also checkout this example [live](http://jsfiddle.net/yyx990803/xgrjzsup/).
+Você também pode checar este examplo [live](http://jsfiddle.net/yyx990803/xgrjzsup/).
 
-Notice that a `<router-link>` automatically gets the `.router-link-active` class when its target route is matched. You can learn more about it in its [API reference](../api/router-link.md).
+Note que o `<router-link>` automaticamente pega a classe `.router-link-active` quando é alvo da rota correspondente. Você pode aprender mais sobre isso na [Referência da API](../api/router-link.md).
